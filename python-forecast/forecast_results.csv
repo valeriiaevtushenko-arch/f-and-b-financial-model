@@ -1,0 +1,13 @@
+year,scenario,net_income
+2025,Base,-9776.0
+2026,Base,-9923.0
+2027,Base,-10072.0
+2025,Upside,-9969.0
+2026,Upside,-10318.0
+2027,Upside,-10679.0
+2025,Downside,-9536.0
+2026,Downside,-9440.0
+2027,Downside,-9346.0
+2025,Turnaround (Illustrative),-6132.0
+2026,Turnaround (Illustrative),-2632.0
+2027,Turnaround (Illustrative),868.0
