@@ -1,0 +1,6 @@
+Scenario,Description,ebitda,recurring_improvement,one_time_cash_net,risk_flag
+A - Close Worst 2 Segments,"Close Italian + Japanese Restaurant, net of estimated severance (2 * $400K placeholder)",-6337.0,6251.0,-800.0,Severance estimate is a placeholder - confirm with real headcount/tenure data
+D - Combined (Close + Sell),"Close worst 2 segments AND non-core assets, both net of above adjusments",-6337.0,6251.0,3450.0,Combines both risk flags above - highest execution complexity
+B - 10% Opex Reduction,Cut Operating Expenses by 10% across all segments,-10841.0,1747.0,0.0,
+Current,baseline-no action,-12588.0,0.0,0.0,
+C - Sell Non-Core Assets,"One-time sale, net of 15% illustrative tax/transaction cost haircut",-12588.0,0.0,4250.0,Central Kitchen may supply other segments internally - clousure risk not quantified
