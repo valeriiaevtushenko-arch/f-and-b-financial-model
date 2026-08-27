@@ -1,10 +1,10 @@
 # Multi-Segment F&B Business — Financial Model & Restructuring Analysis
 
 A 3-statement financial model, scenario analysis, SQL-based restructuring
-case study, and Python driver-based forecast for a synthetic multi-segment
-food & beverage business (7 segments: Italian Restaurant, Japanese
-Restaurant, Burger Joint, Pizzeria, Beverage Brand, Delivery Service,
-Central Kitchen).
+case study, Python driver-based forecast, and interactive Tableau
+dashboards for a synthetic multi-segment food & beverage business
+(7 segments: Italian Restaurant, Japanese Restaurant, Burger Joint,
+Pizzeria, Beverage Brand, Delivery Service, Central Kitchen).
 
 **Note:** All data is synthetic, created for portfolio demonstration purposes.
 
@@ -93,6 +93,11 @@ a path back to profitability could look like.
   appropriate framing and is the only path that reaches positive Net
   Income (+868K by 2027).
 
+**Interactive dashboards** (`tableau-dashboard/`): rebuilt the historical
+trend, revenue/expense comparison, and restructuring scenario comparison
+as interactive Tableau Public visuals, with hover tooltips and a
+breakeven reference line.
+
 ## Share
 
 - `presentation/` — case study slides (built in Canva) summarizing the
@@ -103,8 +108,11 @@ a path back to profitability could look like.
   numbered 01–10
 - `python-forecast/screenshots/` — Python forecast workflow (data loading,
   code, and final chart), numbered py01–py04
-- Bar chart visualization of the 4 restructuring scenarios (BigQuery) and
-  a line chart of the 2025–2027 forecast by scenario (Python/matplotlib)
+- `tableau-dashboard/screenshots/` — Tableau workflow, numbered tb01–tb03
+- **Live interactive dashboards:**
+  - [Historical Net Income Trend & Revenue vs Expenses](https://public.tableau.com/views/f-and-b-tableau-dashboard/HistoricalNetIncomeTrend?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link) —
+    switch between sheet tabs to see both views
+  - [Restructuring Scenario Comparison](https://public.tableau.com/views/crisis-exit-scenarios-comparison/Sheet1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 ## Act
 
@@ -132,13 +140,15 @@ sql/ BigQuery data cleaning, metric correction, scenario analysis
 sql/screenshots/ SQL workflow evidence (01–10)
 python-forecast/ 2025–2027 driver-based forecast (pandas + matplotlib)
 python-forecast/screenshots/ Python workflow evidence (py01–py04)
+tableau-dashboard/data/ CSV exports used for Tableau
+tableau-dashboard/screenshots/ Tableau workflow evidence (tb01–tb03)
 
 
 ## Tools Used
 
 Google BigQuery (SQL) · Excel (3-statement modeling, WACC/NPV, scenario
 analysis, circular reference handling) · Python (pandas, matplotlib) ·
-Canva (presentation design)
+Tableau Public (interactive dashboards) · Canva (presentation design)
 
 ## Author
 
