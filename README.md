@@ -46,9 +46,7 @@ Raw BigQuery data had several quality issues, cleaned via SQL (`sql/01_data_clea
 ### 1. 3-Statement Model & Valuation (`excel-model/`)
 Built Income Statement, Balance Sheet, and Cash Flow with a revolver/term-loan debt schedule, scenario drivers (Base/Upside/Downside), and WACC-based NPV valuation.
 
-**Modeling gap found and fixed:** The revolver interest was initially calculated but the circular reference handling wasn't fully protected. I corrected the circularity switch logic, which revealed that interest expense had been understated by approximately 2,500 — and the revolver hits its $20M limit four months earlier than the uncorrected version showed. 
-
-This revealed a materially larger cash shortfall than initially modeled — Interest rose from 219 to 2,795, and the revolver hits its **$20M limit** in August 2024 (four months earlier than the uncorrected model showed), with the minimum cash covenant breached for the remainder of the year.
+**Modeling gap found and fixed:** The revolver interest was initially calculated but the circular reference handling wasn't fully protected. I corrected the circularity switch logic, which revealed that interest expense had been understated by approximately 2,500 — and the revolver hits its $20M limit in August 2024 (four months earlier than the uncorrected model showed), with the minimum cash covenant breached for the remainder of the year.
 
 ### 2. Metric Correction (`sql/02_ebitda_correction.sql`)
 Identified that a column named `net_income` at the segment level was actually **EBITDA** (Revenue − COGS − Opex only). Renamed consistently across the SQL, Excel model, and presentation.
@@ -70,7 +68,7 @@ Extended the analysis with a Python (pandas + matplotlib) driver-based projectio
 
 **Methodology note:** The projection combines the historical Net Income base (after D&A/interest, before grants) with the SQL scenario's EBITDA-level recurring improvement. This is a simplification disclosed in the code comments, since a full re-run of D&A/interest/grants under the restructured scenario was out of scope.
 
-The model uses 24 months of monthly data (2023–2024) for forecasting. Since the business is in a structural decline, I applied driver-based assumptions rather than statistical trend-fitting to the historical Net Income series — because the pre-restructuring trend does not reflect the impact of the restructuring actions tested in the SQL scenarios.
+The model uses 24 months of monthly data (2023–2024). Since the business is in a structural decline, I applied driver-based assumptions rather than statistical trend-fitting — because the historical trend does not reflect the impact of the restructuring actions tested in the SQL scenarios.
 
 **Counterintuitive finding:** In this projection, "Upside" (higher revenue growth) produces a worse Net Income outcome than "Downside" — because percentage growth is applied to an already-negative base, so faster growth means a faster-growing loss. This highlights why percentage-based growth assumptions are not meaningful for a loss-making business; the **Turnaround** scenario (fixed-dollar annual improvement) is the only path that reaches positive Net Income (+868K by 2027).
 
@@ -93,7 +91,7 @@ Rebuilt the historical trend, revenue/expense comparison, restructuring scenario
 * `python-forecast/` — 2025–2027 driver-based forecast (pandas + matplotlib)
 * `python-forecast/screenshots/` — Python workflow evidence (py01–py04)
 * `tableau-dashboard/data/` — CSV exports used for Tableau
-* `tableau-dashboard/screenshots/` — Tableau workflow evidence (tb01–tb04).
+* `tableau-dashboard/screenshots/` — Tableau workflow evidence (tb01–tb04)
 
 ### 📈 Live Interactive Dashboards (Tableau Public)
 * [Historical Net Income Trend & Revenue vs Expenses](https://public.tableau.com/views/f-and-b-tableau-dashboard/HistoricalNetIncomeTrend?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
