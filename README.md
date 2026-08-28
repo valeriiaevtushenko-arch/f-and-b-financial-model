@@ -56,8 +56,10 @@ Built a CTE-based SQL query comparing 4 restructuring options:
 
 *Explicitly separating recurring operating impact from one-time cash effects. Includes disclosed, illustrative assumptions for severance costs and tax/transaction costs on asset sales.*
 
-### 4. Forward-Looking Scenario Projection (`![Python Forecast](python-forecast/screenshots/py04.png)`)
+### 4. Forward-Looking Scenario Projection 
 Extended the analysis with a Python (pandas + matplotlib) driver-based projection to 2025–2027.
+
+![Python Forecast](python-forecast/screenshots/py04.png)
 
 **Methodology note:** The projection combines the historical Net Income base (after D&A/interest, before grants) with the SQL scenario's EBITDA-level recurring improvement. This is a simplification disclosed in the code comments, since a full re-run of D&A/interest/grants under the restructured scenario was out of scope.
 
