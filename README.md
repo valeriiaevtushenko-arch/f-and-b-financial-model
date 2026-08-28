@@ -59,7 +59,7 @@ Built a CTE-based SQL query comparing 4 restructuring options:
 ### 4. Forward-Looking Scenario Projection 
 Extended the analysis with a Python (pandas + matplotlib) driver-based projection to 2025–2027.
 
-![Forecast Chart and Results](screenshots/py04_forecast_chart_and_results.png)
+![Forecast Chart](python-forecast/screenshots/py04_forecast_chart_and_results.png)
 
 **Methodology note:** The projection combines the historical Net Income base (after D&A/interest, before grants) with the SQL scenario's EBITDA-level recurring improvement. This is a simplification disclosed in the code comments, since a full re-run of D&A/interest/grants under the restructured scenario was out of scope.
 
