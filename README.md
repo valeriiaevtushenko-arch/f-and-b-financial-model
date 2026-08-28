@@ -70,11 +70,13 @@ Extended the analysis with a Python (pandas + matplotlib) driver-based projectio
 
 **Methodology note:** The projection combines the historical Net Income base (after D&A/interest, before grants) with the SQL scenario's EBITDA-level recurring improvement. This is a simplification disclosed in the code comments, since a full re-run of D&A/interest/grants under the restructured scenario was out of scope.
 
-The 6-year historical dataset is too short for reliable trend-fitting, so growth assumptions are carried over directly from the Excel model's Base/Upside/Downside drivers, plus an illustrative "Turnaround" scenario (fixed annual dollar improvement).
+The model uses 24 months of monthly data (2023–2024) for forecasting. Since the business is in a structural decline, I applied driver-based assumptions rather than statistical trend-fitting to the historical Net Income series — because the pre-restructuring trend does not reflect the impact of the restructuring actions tested in the SQL scenarios.
 
 **Counterintuitive finding:** In this projection, "Upside" (higher revenue growth) produces a worse Net Income outcome than "Downside" — because percentage growth is applied to an already-negative base, so faster growth means a faster-growing loss. This highlights why percentage-based growth assumptions are not meaningful for a loss-making business; the **Turnaround** scenario (fixed-dollar annual improvement) is the only path that reaches positive Net Income (+868K by 2027).
 
 **Python code:** [`python-forecast/forecast.py`](python-forecast/forecast.py)
+
+This scenario is not part of the Excel model — it's a Python-only extension to test what level of improvement would be needed to reach breakeven.
 
 ### 5. Interactive Dashboards (`tableau-dashboard/`)
 Rebuilt the historical trend, revenue/expense comparison, restructuring scenario comparison, and the Python forecast as interactive Tableau Public visuals, with hover tooltips and breakeven reference lines.
