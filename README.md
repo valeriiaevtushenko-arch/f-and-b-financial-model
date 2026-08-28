@@ -1,6 +1,6 @@
 # Multi-Segment F&B Business — Financial Model & Restructuring Analysis
 
-**Executive Summary:** This portfolio project simulates a full FP&A cycle — from data extraction (SQL) to modeling (Excel) to forecasting (Python) to visualization (Tableau). The business is not self-sustaining, and restructuring alone is not enough to reach breakeven. The project includes a 3-statement financial model, scenario analysis, SQL-based restructuring case study, Python driver-based forecast, and interactive Tableau dashboards for a synthetic multi-segment F&B business.
+**Executive Summary:** This portfolio project simulates a full FP&A cycle — from data extraction (SQL) to modeling (Excel) to forecasting (Python) to visualization (Tableau). The business is not self-sustaining, and restructuring alone is not enough to reach breakeven. The project includes a 3-statement financial model, scenario analysis, SQL-based restructuring case study, Python driver-based forecast, and interactive Tableau dashboards for a synthetic multi-segment F&B business (7 segments).
 
 > **Note:** All data is synthetic, created for portfolio demonstration purposes.
 
