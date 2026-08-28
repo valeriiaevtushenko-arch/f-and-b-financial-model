@@ -91,7 +91,7 @@ Rebuilt the historical trend, revenue/expense comparison, restructuring scenario
 * `python-forecast/` — 2025–2027 driver-based forecast (pandas + matplotlib)
 * `python-forecast/screenshots/` — Python workflow evidence (py01–py04)
 * `tableau-dashboard/data/` — CSV exports used for Tableau
-* `tableau-dashboard/screenshots/` — Tableau workflow evidence (tb01–tb04)
+* `tableau-dashboard/screenshots/` — Tableau workflow evidence (tb01–tb04).
 
 ### 📈 Live Interactive Dashboards (Tableau Public)
 * [Historical Net Income Trend & Revenue vs Expenses](https://public.tableau.com/views/f-and-b-tableau-dashboard/HistoricalNetIncomeTrend?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
