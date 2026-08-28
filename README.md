@@ -2,7 +2,7 @@
 
 **Executive Summary:** This portfolio project simulates a full FP&A cycle — from data extraction (SQL) to modeling (Excel) to forecasting (Python) to visualization (Tableau). The business is not self-sustaining, and restructuring alone is not enough to reach breakeven. 
 
-**Executive Summary:**A 3-statement financial model, scenario analysis, SQL-based restructuring case study, Python driver-based forecast, and interactive Tableau dashboards for a synthetic multi-segment food & beverage business (7 segments: Italian Restaurant, Japanese Restaurant, Burger Joint, Pizzeria, Beverage Brand, Delivery Service, Central Kitchen).
+**Executive Summary:** A 3-statement financial model, scenario analysis, SQL-based restructuring case study, Python driver-based forecast, and interactive Tableau dashboards for a synthetic multi-segment food & beverage business (7 segments: Italian Restaurant, Japanese Restaurant, Burger Joint, Pizzeria, Beverage Brand, Delivery Service, Central Kitchen).
 
 > **Note:** All data is synthetic, created for portfolio demonstration purposes.
 
