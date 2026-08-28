@@ -33,6 +33,12 @@ Raw BigQuery data had several quality issues, cleaned via SQL (`sql/01_data_clea
 * Typo in the `EBIDTA` column (renamed to `EBITDA`)
 * An auto-generated column name where BigQuery failed to parse a header
 
+* ### SQL Queries for Analysis
+
+- `sql/02_ebitda_correction.sql` — Renamed `net_income` column to `EBITDA` at the segment level for clarity.
+- `sql/03_crisis_exit_scenarios.sql` — Compared 4 restructuring options (closing segments, cutting opex, selling assets, combined approach) using CTEs.
+- `sql/screenshots/` — Contains workflow evidence (01–10) for all SQL steps.
+
 ---
 
 ## 🔍 Analyze
@@ -57,6 +63,7 @@ Built a CTE-based SQL query comparing 4 restructuring options:
 *Explicitly separating recurring operating impact from one-time cash effects. Includes disclosed, illustrative assumptions for severance costs and tax/transaction costs on asset sales.*
 
 ### 4. Forward-Looking Scenario Projection 
+
 Extended the analysis with a Python (pandas + matplotlib) driver-based projection to 2025–2027.
 
 ![Forecast Chart](python-forecast/screenshots/py04_forecast_chart_and_results.png)
@@ -66,6 +73,8 @@ Extended the analysis with a Python (pandas + matplotlib) driver-based projectio
 The 6-year historical dataset is too short for reliable trend-fitting, so growth assumptions are carried over directly from the Excel model's Base/Upside/Downside drivers, plus an illustrative "Turnaround" scenario (fixed annual dollar improvement).
 
 **Counterintuitive finding:** In this projection, "Upside" (higher revenue growth) produces a worse Net Income outcome than "Downside" — because percentage growth is applied to an already-negative base, so faster growth means a faster-growing loss. This highlights why percentage-based growth assumptions are not meaningful for a loss-making business; the **Turnaround** scenario (fixed-dollar annual improvement) is the only path that reaches positive Net Income (+868K by 2027).
+
+**Python code:** [`python-forecast/main.py`](python-forecast/main.py)
 
 ### 5. Interactive Dashboards (`tableau-dashboard/`)
 Rebuilt the historical trend, revenue/expense comparison, restructuring scenario comparison, and the Python forecast as interactive Tableau Public visuals, with hover tooltips and breakeven reference lines.
