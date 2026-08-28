@@ -74,7 +74,7 @@ The 6-year historical dataset is too short for reliable trend-fitting, so growth
 
 **Counterintuitive finding:** In this projection, "Upside" (higher revenue growth) produces a worse Net Income outcome than "Downside" — because percentage growth is applied to an already-negative base, so faster growth means a faster-growing loss. This highlights why percentage-based growth assumptions are not meaningful for a loss-making business; the **Turnaround** scenario (fixed-dollar annual improvement) is the only path that reaches positive Net Income (+868K by 2027).
 
-**Python code:** [`python-forecast/main.py`](python-forecast/main.py)
+**Python code:** [`python-forecast/forecast.py`](python-forecast/forecast.py)
 
 ### 5. Interactive Dashboards (`tableau-dashboard/`)
 Rebuilt the historical trend, revenue/expense comparison, restructuring scenario comparison, and the Python forecast as interactive Tableau Public visuals, with hover tooltips and breakeven reference lines.
