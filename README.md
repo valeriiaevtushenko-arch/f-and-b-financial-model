@@ -46,7 +46,7 @@ Raw BigQuery data had several quality issues, cleaned via SQL (`sql/01_data_clea
 ### 1. 3-Statement Model & Valuation (`excel-model/`)
 Built Income Statement, Balance Sheet, and Cash Flow with a revolver/term-loan debt schedule, scenario drivers (Base/Upside/Downside), and WACC-based NPV valuation.
 
-**Modeling gap found and fixed:** The revolver interest was initially calculated but the circular reference handling wasn't fully protected. I corrected the circularity switch logic, which revealed that interest expense had been understated by approximately 2,500 — and the revolver hits its $20M limit four months earlier than the uncorrected version showed.
+**Modeling gap found and fixed:** The revolver interest was initially calculated but the circular reference handling wasn't fully protected. I corrected the circularity switch logic, which revealed that interest expense had been understated by approximately 2,500 — and the revolver hits its $20M limit four months earlier than the uncorrected version showed. 
 
 This revealed a materially larger cash shortfall than initially modeled — Interest rose from 219 to 2,795, and the revolver hits its **$20M limit** in August 2024 (four months earlier than the uncorrected model showed), with the minimum cash covenant breached for the remainder of the year.
 
