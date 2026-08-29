@@ -96,6 +96,12 @@ Rebuilt the historical trend, revenue/expense comparison, restructuring scenario
 ### 📈 Live Interactive Dashboards (Tableau Public)
 
 * [Historical Net Income Trend & Revenue vs Expenses](https://public.tableau.com/views/f-and-b-tableau-dashboard/HistoricalNetIncomeTrend?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+* [Revenue vs Expenses](ссылка) 
+  > **Note:** This link currently opens to the "Historical Net Income Trend" tab due to 
+  > a Tableau Public limitation with multi-tab workbooks. Please click the "Revenue vs 
+  > Expenses" tab at the bottom of the visualization to view this chart.
+
+[![Revenue vs Expenses](картинка)](ссылка)
   ![Historical Trend](tableau-dashboard/data/screenshots/tb01_historical_net_income_trend_v2.png)
 
 * [Revenue vs Expenses](https://public.tableau.com/views/f-and-b-tableau-dashboard/HistoricalNetIncomeTrend?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
