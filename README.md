@@ -96,21 +96,17 @@ Rebuilt the historical trend, revenue/expense comparison, restructuring scenario
 ### 📈 Live Interactive Dashboards (Tableau Public)
 
 * [Historical Net Income Trend & Revenue vs Expenses](https://public.tableau.com/views/f-and-b-tableau-dashboard/HistoricalNetIncomeTrend?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
-* [Revenue vs Expenses](ссылка) 
-  > **Note:** This link currently opens to the "Historical Net Income Trend" tab due to 
-  > a Tableau Public limitation with multi-tab workbooks. Please click the "Revenue vs 
-  > Expenses" tab at the bottom of the visualization to view this chart.
+  > **Note:** This link opens to the "Historical Net Income Trend" tab by default, due to a Tableau Public limitation with multi-tab workbooks. Click the "Revenue vs Expenses" tab at the bottom of the visualization to view that chart.
 
-[![Revenue vs Expenses](картинка)](ссылка)
   ![Historical Trend](tableau-dashboard/data/screenshots/tb01_historical_net_income_trend_v2.png)
-
-* [Revenue vs Expenses](https://public.tableau.com/views/f-and-b-tableau-dashboard/HistoricalNetIncomeTrend?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
   ![Revenue vs Expenses](tableau-dashboard/data/screenshots/tb02_revenue_vs_expenses.png)
 
 * [Restructuring Scenario Comparison](https://public.tableau.com/views/crisis-exit-scenarios-comparison/Sheet1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+
   ![Restructuring Comparison](tableau-dashboard/data/screenshots/tb03_restructuring_scenario_comparison.png)
 
 * [Net Income Forecast 2025–2027 by Scenario](https://public.tableau.com/views/f-and-b-forecast-scenarios/Sheet1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+
   ![Forecast Scenarios](tableau-dashboard/data/screenshots/tb04_forecast_by_scenario.png)
 
 ---
