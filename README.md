@@ -133,3 +133,5 @@ Rebuilt the historical trend, revenue/expense comparison, restructuring scenario
 **Valeriia Evtushenko** — Open to opportunities in Financial Analysis / FP&A
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/valeriia-evtushenko-51110a304)
+
+© 2025 Valeriia Evtushenko. Portfolio use only.
