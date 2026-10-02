@@ -47,9 +47,9 @@ print(forecast_df)
 
 forecast_df.to_csv('forecast_results.csv', index=False)
 
-import matplotlib.pyplot as plt # matplotlib — библиотека для построения графиков
+import matplotlib.pyplot as plt # matplotlib — library for building charts
 
-plt.figure(figsize=(10,6)) # создаём пустой холст для графика, размер в дюймах
+plt.figure(figsize=(10,6)) # сcreate an empty canvas for the chart, size in inches
 
 # draw one line per scenario, so we get 4 separate lines on the same chart
 for scenario_name in forecast_df['scenario'].unique(): # .unique() gets each distinct scenario name once
