@@ -106,7 +106,7 @@ https://public.tableau.com/app/profile/valeriia.evtushenko/viz/FB-Revenue-vs-Exp
 
 **Live dashboards on Tableau Public**
 
-- [![Historical net income trend](tableau-dashboard/data/screenshots/tb01_historical_net_income_trend_v3.png)](https://public.tableau.com/app/profile/valeriia.evtushenko/viz/HistoricalNetIncomeTrend/HistoricalNetIncomeTrend)
+- https://public.tableau.com/app/profile/valeriia.evtushenko/viz/HistoricalNetIncomeTrend/HistoricalNetIncomeTrend
 - [Restructuring Scenario Comparison](TABLEAU_LINK_2)
 - [Net Income Forecast 2025–2027 by Scenario](TABLEAU_LINK_3)
 
