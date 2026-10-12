@@ -93,6 +93,8 @@ The historical trend, the revenue and expense comparison, the restructuring scen
 
 ![Restructuring scenario comparison](tableau-dashboard/data/screenshots/tb03_restructuring_scenario_comparison.png)
 
+![Net income forecast 2025–2027 by scenario (Tableau)](tableau-dashboard/data/screenshots/tb04_forecast_by_scenario.png)
+
 ## Share
 
 **Project structure**
