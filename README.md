@@ -70,8 +70,6 @@ Recurring operating impact is separated explicitly from one-time cash effects. A
 
 A driver-based projection to 2025–2027 in Python (pandas, matplotlib).
 
-![Net income forecast 2025–2027 by scenario]
-
 ![Net income forecast 2025–2027 by scenario](python-forecast/screenshots/py04_forecast_chart_and_results.png)
 
 **Method.** The projection combines the historical net income base — after depreciation and interest, before grants — with the EBITDA-level recurring improvement from the SQL scenarios. This is a simplification, disclosed in the code comments: a full re-run of depreciation, interest and grants under the restructured scenario was out of scope.
