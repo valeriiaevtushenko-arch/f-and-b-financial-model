@@ -49,7 +49,7 @@ Income statement, balance sheet and cash flow with a revolver and term-loan debt
 
 **Modelling gap found and fixed.** Revolver interest was being calculated, but the circular-reference handling was not fully protected. Correcting the circularity switch revealed that interest expense had been understated by approximately 2,500. On the corrected model the revolver reaches its limit of 20,000 ($20.0M) in August 2024 — four months earlier than the uncorrected version showed — and the minimum cash covenant is breached for the remainder of the year.
 
-![2024 waterfall analysis](PATH/TO/WATERFALL.png)
+![2024 waterfall analysis](presentation/Waterfall%20Analysis.png)
 
 ### 2. Metric correction — [`sql/02_ebitda_correction.sql`](sql/02_ebitda_correction.sql)
 
