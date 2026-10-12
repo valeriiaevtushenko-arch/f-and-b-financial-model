@@ -91,6 +91,9 @@ https://public.tableau.com/app/profile/valeriia.evtushenko/viz/FB-Revenue-vs-Exp
 
 ![Revenue vs expenses](tableau-dashboard/data/screenshots/tb02_revenue_vs_expenses_1.png)
 
+
+![Restructuring scenario comparison](tableau-dashboard/data/screenshots/tb03_restructuring_scenario_comparison.png)
+
 ## Share
 
 **Project structure**
