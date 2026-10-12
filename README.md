@@ -106,14 +106,14 @@ The historical trend, the revenue and expense comparison, the restructuring scen
 - `python-forecast/` — 2025–2027 driver-based forecast (pandas, matplotlib)
 - `python-forecast/screenshots/` — Python workflow evidence (py01–py04)
 - `tableau-dashboard/data/` — CSV exports used for Tableau
-- `tableau-dashboard/screenshots/` — Tableau workflow evidence (tb01–tb04)
+- `tableau-dashboard/data/screenshots/` — Tableau workflow evidence (tb01–tb04)
 
 **Live dashboards on Tableau Public**
 
-- https://public.tableau.com/app/profile/valeriia.evtushenko/viz/HistoricalNetIncomeTrend/HistoricalNetIncomeTrend
-- https://public.tableau.com/app/profile/valeriia.evtushenko/viz/FB-Revenue-vs-Expenses/RevenuevsExpenses
-- https://public.tableau.com/app/profile/valeriia.evtushenko/viz/crisis-exit-scenarios-comparison/Sheet1
-- https://public.tableau.com/app/profile/valeriia.evtushenko/viz/f-and-b-forecast-scenarios/Sheet1
+- [Historical Net Income Trend](https://public.tableau.com/app/profile/valeriia.evtushenko/viz/HistoricalNetIncomeTrend/HistoricalNetIncomeTrend)
+- [Revenue vs Expenses](https://public.tableau.com/app/profile/valeriia.evtushenko/viz/FB-Revenue-vs-Expenses/RevenuevsExpenses)
+- [Restructuring Scenario Comparison](https://public.tableau.com/app/profile/valeriia.evtushenko/viz/crisis-exit-scenarios-comparison/Sheet1)
+- [Net Income Forecast 2025–2027 by Scenario](https://public.tableau.com/app/profile/valeriia.evtushenko/viz/f-and-b-forecast-scenarios/Sheet1)
 
 
 ## Act
