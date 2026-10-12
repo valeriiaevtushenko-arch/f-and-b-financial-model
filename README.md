@@ -88,6 +88,8 @@ https://public.tableau.com/app/profile/valeriia.evtushenko/viz/HistoricalNetInco
 
 ![Historical net income trend](tableau-dashboard/data/screenshots/tb01_historical_net_income_trend_v3.png)
 
+https://public.tableau.com/app/profile/valeriia.evtushenko/viz/FB-Revenue-vs-Expenses/RevenuevsExpenses
+
 ## Share
 
 **Project structure**
