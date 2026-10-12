@@ -111,7 +111,7 @@ The historical trend, the revenue and expense comparison, the restructuring scen
 - https://public.tableau.com/app/profile/valeriia.evtushenko/viz/HistoricalNetIncomeTrend/HistoricalNetIncomeTrend
 - https://public.tableau.com/app/profile/valeriia.evtushenko/viz/FB-Revenue-vs-Expenses/RevenuevsExpenses
 - https://public.tableau.com/app/profile/valeriia.evtushenko/viz/crisis-exit-scenarios-comparison/Sheet1
-- [Net Income Forecast 2025–2027 by Scenario](TABLEAU_LINK_3)
+- https://public.tableau.com/app/profile/valeriia.evtushenko/viz/f-and-b-forecast-scenarios/Sheet1
 
 > The first link opens on the Historical Net Income Trend tab by default, a Tableau Public limitation with multi-tab workbooks. Use the tabs at the bottom of the visualisation to switch to Revenue vs Expenses.
 
