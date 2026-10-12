@@ -1,137 +1,134 @@
 # Multi-Segment F&B Business — Financial Model & Restructuring Analysis
 
-**Executive Summary:** This portfolio project simulates a full FP&A cycle — from data extraction (SQL) to modeling (Excel) to forecasting (Python) to visualization (Tableau). The business is not self-sustaining, and restructuring alone is not enough to reach breakeven. The project includes a 3-statement financial model, scenario analysis, SQL-based restructuring case study, Python driver-based forecast, and interactive Tableau dashboards for a synthetic multi-segment F&B business (7 segments).
+**Executive summary.** This portfolio project runs a full FP&A cycle on a synthetic multi-segment food-and-beverage business: data extraction and cleaning in SQL, a three-statement model in Excel, a driver-based forecast in Python, and interactive dashboards in Tableau. The conclusion is that the business is not self-sustaining, and that restructuring alone does not reach breakeven.
 
-> **Note:** All data is synthetic, created for portfolio demonstration purposes.
+The project includes a three-statement financial model with a debt schedule and WACC-based valuation, scenario analysis, a SQL restructuring case study, a Python forecast to 2027, and four Tableau Public dashboards. Seven business segments.
 
-Structured using the **Ask → Prepare → Process → Analyze → Share → Act** framework from the Google Data Analytics Certificate.
+> **All figures are in CAD thousands unless stated otherwise.**
+> All data is synthetic, created for portfolio demonstration purposes.
+
+Structured using the Ask → Prepare → Process → Analyze → Share → Act framework from the Google Data Analytics Certificate.
 
 ---
 
-## 📊 Ask
+## Ask
 
-Three business questions drove this analysis:
+Three business questions drove the analysis:
+
 1. Is the business generating enough cash from operations?
 2. Can the business repay its debt?
 3. What happens if government grants are reduced or removed?
 
----
+## Prepare
 
-## 🗂️ Prepare
+Data sources, all synthetic and generated for this portfolio:
 
-Data sources (all synthetic, generated for this portfolio):
-* `financial_data_monthly` — monthly Income Statement + Cash Flow line items, 2023–2024
-* `historical_annual` — annual Net Income, 2019–2024
-* `segment_analysis_2024` — 2024 Revenue/COGS/Opex/Net Income by business segment
+- `financial_data_monthly` — monthly income statement and cash flow line items, 2023–2024
+- `historical_annual` — annual net income, 2019–2024
+- `segment_analysis_2024` — 2024 revenue, COGS, opex and net income by business segment
 
----
+## Process
 
-## 🛠️ Process
+The raw BigQuery data had several quality issues, cleaned in SQL ([`sql/01_data_cleaning.sql`](sql/01_data_cleaning.sql)):
 
-Raw BigQuery data had several quality issues, cleaned via SQL (`sql/01_data_cleaning.sql`):
-* Trailing space in the `Operating_Expenses` column name
-* Typo in the `EBIDTA` column (renamed to `EBITDA`)
-* An auto-generated column name where BigQuery failed to parse a header
+- a trailing space in the `Operating_Expenses` column name
+- a typo in the `EBIDTA` column, renamed to `EBITDA`
+- an auto-generated column name where BigQuery failed to parse a header
 
-### SQL Queries for Analysis
+Further queries:
 
-- `sql/02_ebitda_correction.sql` — Renamed `net_income` column to `EBITDA` at the segment level for clarity.
-- `sql/03_crisis_exit_scenarios.sql` — Compared 4 restructuring options (closing segments, cutting opex, selling assets, combined approach) using CTEs.
-- `sql/screenshots/` — Contains workflow evidence (01–10) for all SQL steps.
+- [`sql/02_ebitda_correction.sql`](sql/02_ebitda_correction.sql) — corrects a mislabelled metric at segment level
+- [`sql/03_crisis_exit_scenarios.sql`](sql/03_crisis_exit_scenarios.sql) — compares four restructuring options using CTEs
+- [`sql/screenshots/`](sql/screenshots/) — workflow evidence for all SQL steps (01–10)
 
----
+## Analyze
 
-## 🔍 Analyze
+### 1. Three-statement model and valuation — [`excel-model/`](excel-model/)
 
-### 1. 3-Statement Model & Valuation (`excel-model/`)
-Built Income Statement, Balance Sheet, and Cash Flow with a revolver/term-loan debt schedule, scenario drivers (Base/Upside/Downside), and WACC-based NPV valuation.
+Income statement, balance sheet and cash flow with a revolver and term-loan debt schedule, scenario drivers (Base, Upside, Downside) and a WACC-based NPV valuation.
 
-**Modeling gap found and fixed:** The revolver interest was initially calculated but the circular reference handling wasn't fully protected. I corrected the circularity switch logic, which revealed that interest expense had been understated by approximately 2,500 — and the revolver hits its $20M limit in August 2024 (four months earlier than the uncorrected model showed), with the minimum cash covenant breached for the remainder of the year.
+**Modelling gap found and fixed.** Revolver interest was being calculated, but the circular-reference handling was not fully protected. Correcting the circularity switch revealed that interest expense had been understated by approximately 2,500. On the corrected model the revolver reaches its limit of 20,000 ($20.0M) in August 2024 — four months earlier than the uncorrected version showed — and the minimum cash covenant is breached for the remainder of the year.
 
-### 2. Metric Correction (`sql/02_ebitda_correction.sql`)
-Identified that a column named `net_income` at the segment level was actually **EBITDA** (Revenue − COGS − Opex only). Renamed consistently across the SQL, Excel model, and presentation.
+![2024 waterfall analysis](PATH/TO/WATERFALL.png)
 
-### 3. Crisis Exit Scenario Comparison (`sql/03_crisis_exit_scenarios.sql`)
-Built a CTE-based SQL query comparing 4 restructuring options:
-* Closing underperforming segments
-* Cutting operating expenses
-* Selling non-core assets
-* A combined approach
+### 2. Metric correction — [`sql/02_ebitda_correction.sql`](sql/02_ebitda_correction.sql)
 
-*Explicitly separating recurring operating impact from one-time cash effects. Includes disclosed, illustrative assumptions for severance costs and tax/transaction costs on asset sales.*
+A column named `net_income` at segment level was in fact EBITDA: revenue less COGS less opex, with nothing below the line. Renamed consistently across the SQL, the Excel model and the presentation, so that segment results are not read as net income.
 
-### 4. Forward-Looking Scenario Projection 
+### 3. Crisis exit scenarios — [`sql/03_crisis_exit_scenarios.sql`](sql/03_crisis_exit_scenarios.sql)
 
-Extended the analysis with a Python (pandas + matplotlib) driver-based projection to 2025–2027.
+A CTE-based query comparing four restructuring options:
 
-![Forecast Chart](python-forecast/screenshots/py04_forecast_chart_and_results.png)
+- closing underperforming segments
+- cutting operating expenses
+- selling non-core assets
+- a combined approach
 
-**Methodology note:** The projection combines the historical Net Income base (after D&A/interest, before grants) with the SQL scenario's EBITDA-level recurring improvement. This is a simplification disclosed in the code comments, since a full re-run of D&A/interest/grants under the restructured scenario was out of scope.
+Recurring operating impact is separated explicitly from one-time cash effects. Assumptions for severance and for tax and transaction costs on asset sales are illustrative and disclosed in the query.
 
-The model uses 24 months of monthly data (2023–2024). Since the business is in a structural decline, I applied driver-based assumptions rather than statistical trend-fitting — because the historical trend does not reflect the impact of the restructuring actions tested in the SQL scenarios.
+### 4. Forward-looking projection — [`python-forecast/forecast.py`](python-forecast/forecast.py)
 
-**Counterintuitive finding:** In this projection, "Upside" (higher revenue growth) produces a worse Net Income outcome than "Downside" — because percentage growth is applied to an already-negative base, so faster growth means a faster-growing loss. This highlights why percentage-based growth assumptions are not meaningful for a loss-making business; the **Turnaround** scenario (fixed-dollar annual improvement) is the only path that reaches positive Net Income (+868K by 2027).
+A driver-based projection to 2025–2027 in Python (pandas, matplotlib).
 
-**Python code:** [`python-forecast/forecast.py`](python-forecast/forecast.py)
+![Net income forecast 2025–2027 by scenario](PATH/TO/FORECAST_CHART.png)
 
-This scenario is not part of the Excel model — it's a Python-only extension to test what level of improvement would be needed to reach breakeven.
+**Method.** The projection combines the historical net income base — after depreciation and interest, before grants — with the EBITDA-level recurring improvement from the SQL scenarios. This is a simplification, disclosed in the code comments: a full re-run of depreciation, interest and grants under the restructured scenario was out of scope.
 
-### 5. Interactive Dashboards (`tableau-dashboard/`)
-Rebuilt the historical trend, revenue/expense comparison, restructuring scenario comparison, and the Python forecast as interactive Tableau Public visuals, with hover tooltips and breakeven reference lines.
+The model uses 24 months of monthly data (2023–2024). Because the business is in structural decline, driver-based assumptions were used rather than statistical trend-fitting: the historical trend does not reflect the restructuring actions tested in the SQL scenarios.
 
----
+**Counterintuitive finding.** In this projection the Upside case, with higher revenue growth, produces a *worse* net income outcome than the Downside case. Percentage growth applied to an already-negative base means faster growth produces a faster-growing loss. This is why percentage-based growth assumptions are not meaningful for a loss-making business. Only the Turnaround scenario — a fixed annual improvement in absolute terms — reaches positive net income, at +868 by 2027.
 
-## 📤 Share
+This scenario is a Python-only extension, not part of the Excel model. Its purpose is to test what level of improvement would be required to reach breakeven.
 
-### Project Structure
-* `excel-model/` — 3-statement model, scenario drivers, debt schedule, WACC/NPV
-* `presentation/` — Case study slides (Canva)
-* `sql/` — BigQuery data cleaning, metric correction, scenario analysis
-* `sql/screenshots/` — SQL workflow evidence (01–10)
-* `python-forecast/` — 2025–2027 driver-based forecast (pandas + matplotlib)
-* `python-forecast/screenshots/` — Python workflow evidence (py01–py04)
-* `tableau-dashboard/data/` — CSV exports used for Tableau
-* `tableau-dashboard/screenshots/` — Tableau workflow evidence (tb01–tb04)
+### 5. Interactive dashboards — [`tableau-dashboard/`](tableau-dashboard/)
 
-### 📈 Live Interactive Dashboards (Tableau Public)
+The historical trend, the revenue and expense comparison, the restructuring scenario comparison and the Python forecast, rebuilt as interactive Tableau Public visuals with hover tooltips and a zero reference line on the trend chart.
 
-* [Historical Net Income Trend & Revenue vs Expenses](https://public.tableau.com/views/f-and-b-tableau-dashboard/HistoricalNetIncomeTrend?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
-  > **Note:** This link opens to the "Historical Net Income Trend" tab by default, due to a Tableau Public limitation with multi-tab workbooks. Click the "Revenue vs Expenses" tab at the bottom of the visualization to view that chart.
+![Historical net income trend](PATH/TO/TABLEAU_TREND.png)
 
-  ![Historical Trend](tableau-dashboard/data/screenshots/tb01_historical_net_income_trend_v2.png)
-  ![Revenue vs Expenses](tableau-dashboard/data/screenshots/tb02_revenue_vs_expenses.png)
+## Share
 
-* [Restructuring Scenario Comparison](https://public.tableau.com/views/crisis-exit-scenarios-comparison/Sheet1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+**Project structure**
 
-  ![Restructuring Comparison](tableau-dashboard/data/screenshots/tb03_restructuring_scenario_comparison.png)
+- `excel-model/` — three-statement model, scenario drivers, debt schedule, WACC/NPV
+- `presentation/` — case study slides
+- `sql/` — BigQuery data cleaning, metric correction, scenario analysis
+- `sql/screenshots/` — SQL workflow evidence (01–10)
+- `python-forecast/` — 2025–2027 driver-based forecast (pandas, matplotlib)
+- `python-forecast/screenshots/` — Python workflow evidence (py01–py04)
+- `tableau-dashboard/data/` — CSV exports used for Tableau
+- `tableau-dashboard/screenshots/` — Tableau workflow evidence (tb01–tb04)
 
-* [Net Income Forecast 2025–2027 by Scenario](https://public.tableau.com/views/f-and-b-forecast-scenarios/Sheet1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+**Live dashboards on Tableau Public**
 
-  ![Forecast Scenarios](tableau-dashboard/data/screenshots/tb04_forecast_by_scenario.png)
+- [Historical Net Income Trend and Revenue vs Expenses](TABLEAU_LINK_1)
+- [Restructuring Scenario Comparison](TABLEAU_LINK_2)
+- [Net Income Forecast 2025–2027 by Scenario](TABLEAU_LINK_3)
 
----
+> The first link opens on the Historical Net Income Trend tab by default, a Tableau Public limitation with multi-tab workbooks. Use the tabs at the bottom of the visualisation to switch to Revenue vs Expenses.
 
-## ✅ Act
+## Act
 
-### Key Findings and Recommendation
+**Findings**
 
-* **The business is not self-sustaining:** NPV remains negative (-21,294K) across every tested combination of discount rate (5%–25%) and government grant funding (0–2,400).
-* **Liquidity crisis:** The revolving credit line reaches its $20M limit in August 2024, after which the company breaches its minimum cash covenant for the remainder of the year.
-* **Structural unprofitability:** All 7 segments are unprofitable at the EBITDA level; Italian Restaurant and Japanese Restaurant are the largest loss drivers.
-* **Restructuring is necessary, but not sufficient:** Closing the 2 worst segments + selling non-core assets nearly closes the EBITDA gap (+11,251K combined). However, due to the massive accumulated interest expense and fixed depreciation, this one-time improvement is not enough to flip Net Income positive immediately. Only a sustained annual improvement of ~$3,500K/year (Turnaround scenario) reaches breakeven by 2027 — underscoring that the shortfall is **structural, not cyclical**.
+**The business is not self-sustaining.** NPV remains negative at −21,294 (−$21.3M) across every tested combination of discount rate, from 5% to 25%, and government grant funding, from 0 to 2,400.
 
----
+**There is a liquidity crisis, not a liquidity squeeze.** The revolving credit line reaches its limit of 20,000 in August 2024, after which the company breaches its minimum cash covenant for the rest of the year.
 
-## 🛠️ Tools Used
+**The unprofitability is structural.** All seven segments are loss-making at EBITDA level. The Italian and Japanese restaurants are the largest loss drivers, and even the best-performing segment loses money.
 
-**Google BigQuery (SQL)** · **Excel** (3-statement modeling, WACC/NPV, scenario analysis, circular reference handling) · **Python** (pandas, matplotlib) · **Tableau Public** (interactive dashboards) · **Canva** (presentation design)
+**Restructuring is necessary but not sufficient.** Closing the two worst segments and selling non-core assets nearly closes the EBITDA gap, at +11,251 combined. Because of accumulated interest expense and fixed depreciation, that one-time improvement does not turn net income positive. Only a sustained improvement of roughly 3,500 a year — the Turnaround scenario — reaches breakeven by 2027.
 
----
+**Recommendation.** Restructuring should proceed, but it should not be presented as the solution. Without an operational change in pricing or cost of sales, the business returns to the same position with a smaller footprint. The shortfall is structural, not cyclical.
 
-## 👩‍💻 Author
+## Tools
 
-**Valeriia Evtushenko** — Open to opportunities in Financial Analysis / FP&A
+Google BigQuery (SQL) · Excel — three-statement modelling, WACC/NPV, scenario analysis, circular reference handling · Python (pandas, matplotlib) · Tableau Public · Canva
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/valeriia-evtushenko-51110a304)
+## Author
+
+**Valeriia Evtushenko** — open to opportunities in financial analysis and FP&A.
+
+[LinkedIn](https://www.linkedin.com/in/valeriia-evtushenko-51110a304)
 
 © 2026 Valeriia Evtushenko. Portfolio use only.
