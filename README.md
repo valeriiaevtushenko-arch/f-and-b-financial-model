@@ -90,6 +90,8 @@ https://public.tableau.com/app/profile/valeriia.evtushenko/viz/HistoricalNetInco
 
 https://public.tableau.com/app/profile/valeriia.evtushenko/viz/FB-Revenue-vs-Expenses/RevenuevsExpenses
 
+![Revenue vs expenses](tableau-dashboard/data/screenshots/tb02_revenue_vs_expenses_1.png)
+
 ## Share
 
 **Project structure**
