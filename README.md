@@ -86,7 +86,7 @@ The historical trend, the revenue and expense comparison, the restructuring scen
 
 https://public.tableau.com/app/profile/valeriia.evtushenko/viz/HistoricalNetIncomeTrend/HistoricalNetIncomeTrend
 
-![Historical net income trend](PATH/TO/TABLEAU_TREND.png)
+![Historical net income trend](tableau-dashboard/data/screenshots/tb01_historical_net_income_trend_v3.png)
 
 ## Share
 
