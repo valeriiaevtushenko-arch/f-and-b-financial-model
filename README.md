@@ -84,6 +84,8 @@ This scenario is a Python-only extension, not part of the Excel model. Its purpo
 
 The historical trend, the revenue and expense comparison, the restructuring scenario comparison and the Python forecast, rebuilt as interactive Tableau Public visuals with hover tooltips and a zero reference line on the trend chart.
 
+https://public.tableau.com/app/profile/valeriia.evtushenko/viz/HistoricalNetIncomeTrend/HistoricalNetIncomeTrend
+
 ![Historical net income trend](PATH/TO/TABLEAU_TREND.png)
 
 ## Share
